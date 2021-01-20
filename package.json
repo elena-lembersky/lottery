@@ -6,16 +6,24 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "concurrently": "^5.3.0",
+    "dayjs": "^1.10.3",
+    "lodash": "^4.17.20",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-elastic-carousel": "^0.11.0",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "styled-components": "^5.2.1",
+    "web-vitals": "^0.2.4",
+    "json-server": "^0.16.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test --watchAll=false",
+    "eject": "react-scripts eject",
+    "serve": "concurrently \"npm run start\" \"npm run mock\"",
+    "mock": "json-server -w db.json -p 4200"
   },
   "eslintConfig": {
     "extends": [
@@ -30,9 +38,14 @@
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "since 2010"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "node-sass": "^4.14.1",
+    "react-test-renderer": "^17.0.1"
   }
 }

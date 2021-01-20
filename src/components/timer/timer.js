@@ -1,18 +1,10 @@
-import Text from '../text/Text';
-import dayjs from "dayjs";
+import React from "react";
+import { timeDiffCalc } from '../../utils/timeDiffCalc'
 
-function EndDate (props) {
+function Timer (props) {
     const {date} = props;
-
-    const date1 = dayjs(date)
-    const date2 = dayjs()
-
-    const diffDays = date1.diff(date2, 'day');
-    //const diffDays = date1.diff(date2, 'day');
-
-
-    return (
-        <Text role="end-date" text={diffDays}/>
-    )
+    const days = timeDiffCalc(new Date(date), new Date());
+    return <div data-role="end-date" className="text">{days}</div>
 }
-export default EndDate;
+
+export default Timer;

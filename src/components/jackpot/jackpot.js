@@ -1,18 +1,14 @@
-import Text from '../text/Text';
-import dayjs from "dayjs";
+import React from "react";
+import { mFormatter } from '../../utils/currencyFormatter';
 
-function EndDate (props) {
-    const {date} = props;
-
-    const date1 = dayjs(date)
-    const date2 = dayjs()
-
-    const diffDays = date1.diff(date2, 'day');
-    //const diffDays = date1.diff(date2, 'day');
-
+function Jackpot (props) {
+    const {amount, currency} = props;
 
     return (
-        <Text role="end-date" text={diffDays}/>
-    )
+        <div data-role="jackpot" className="text">
+            {mFormatter(amount,currency)}
+        </div>
+    );
 }
-export default EndDate;
+
+export default Jackpot;

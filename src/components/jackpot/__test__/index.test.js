@@ -1,20 +1,10 @@
 import React from 'react';
-import Button from "../index";
+import Jackpot from "../jackpot";
 import {shallow,configure} from 'enzyme';
 
-describe('<Button/>', () => {
-
+describe('<Jackpot/>', () => {
     test('render button with default text', () => {
-        const component = shallow(<Button/>);
-        expect(component.find('.action_btn').text()).toEqual("Get More");
+        const component = shallow(<Jackpot amount={130000000} currency="USD"/>);
+        expect(component.text()).toEqual("$130 Million");
     })
-
-    test('render button with link wrapper', () => {
-        const linkUrl = "https://some.com";
-        const component = shallow(<Button dataRole="link" link={linkUrl} text="Some Text" />);
-        const linkWrappr = component.render().find('a.link-wrapper');
-        const button = component.render().find('button');
-        expect(linkWrappr).toBeTruthy();
-        expect(button.text()).toEqual("Some Text");
-    });
 });

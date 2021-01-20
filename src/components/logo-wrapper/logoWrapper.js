@@ -1,10 +1,14 @@
+import React from "react";
+
 function LogoWrapper (props) {
-    const {src=''} = props;
+    const {src='',title=''} = props;
+
     const getBackgroundImageStyle = url => ({
-        'background-image': `url('${url}')`,
+        'backgroundImage': `url('${url}')`,
     });
+    const emptyImageClass = src ? '' : '__empty';
     return (
-        <div style={getBackgroundImageStyle(src)}></div>
+        <div title={title} className={`logo__wrapper${emptyImageClass}`} style={getBackgroundImageStyle(src)} />
     )
 }
 export default LogoWrapper;

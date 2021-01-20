@@ -1,0 +1,15 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    networks:
+      - sync-data
+
