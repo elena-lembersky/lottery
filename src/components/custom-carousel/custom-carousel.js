@@ -14,7 +14,7 @@ function CustomCarousel (props) {
         <div className="carousel__container">
             <Carousel breakPoints={breakPoints} pagination={false} onNextStart={onNext} >
                 {data.map(item => (
-                    React.cloneElement(props.children, {item})
+                    React.cloneElement(props.children, {item, key:item.id})
                 ))}
             </Carousel>
         </div>

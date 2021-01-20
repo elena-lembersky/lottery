@@ -21,7 +21,7 @@ function App() {
     async function fetchMyAPI (sortType,step=carouselToStep) {
         if (isAllData) return false;
         const nextStep = step + carouselFromStep;
-        const result = await fetch(`http://localhost:4200/lottery?_start=${carouselFromStep}&_end=${nextStep}`);
+        const result = await fetch(`https://my-json-server.typicode.com/elena-lembersky/lottery-db/lottery?_start=${carouselFromStep}&_end=${nextStep}`);
         const jsonResult = await result.json();
         if (jsonResult.length) {
             setData(_.orderBy([...data,...jsonResult],sortField,sortType));
